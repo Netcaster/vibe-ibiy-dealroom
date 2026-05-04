@@ -1,0 +1,122 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { margin: 0; font-family: Arial, Helvetica, sans-serif; -webkit-font-smoothing: antialiased; }
+  input, select, textarea { font-family: inherit; }
+
+  /* ── CSS Custom Properties ── */
+  :root {
+    --grad-main:  radial-gradient(circle at 20% 20%, rgba(255,255,255,0.18), transparent 28%),
+                  radial-gradient(circle at 80% 0%,  rgba(255,255,255,0.10), transparent 28%),
+                  linear-gradient(135deg, #050505, #111111, #000000);
+    --grad-shell: radial-gradient(circle at 15% 20%, rgba(255,255,255,0.14), transparent 25%),
+                  radial-gradient(circle at 85% 80%, rgba(255,255,255,0.10), transparent 28%),
+                  linear-gradient(135deg, #050505, #111111, #000000);
+    --grid-color: rgba(255,255,255,0.10);
+    --c-header:   rgba(5,5,5,0.86);
+    --c-modal:    rgba(0,0,0,0.86);
+    --c-input:    rgba(0,0,0,0.50);
+    --c-input-border: rgba(255,255,255,0.20);
+    --c-input-text: #ffffff;
+    --c-placeholder: rgba(255,255,255,0.35);
+  }
+
+  html.light {
+    --grad-main:  radial-gradient(circle at 20% 20%, rgba(0,0,0,0.04), transparent 28%),
+                  radial-gradient(circle at 80% 0%,  rgba(0,0,0,0.03), transparent 28%),
+                  linear-gradient(135deg, #f8f8fa, #f2f2f5, #ebebef);
+    --grad-shell: radial-gradient(circle at 15% 20%, rgba(0,0,0,0.04), transparent 25%),
+                  radial-gradient(circle at 85% 80%, rgba(0,0,0,0.03), transparent 28%),
+                  linear-gradient(135deg, #f8f8fa, #f2f2f5, #ebebef);
+    --grid-color: rgba(0,0,0,0.05);
+    --c-header:   rgba(248,248,250,0.88);
+    --c-modal:    rgba(242,242,245,0.92);
+    --c-input:    rgba(255,255,255,0.90);
+    --c-input-border: rgba(0,0,0,0.18);
+    --c-input-text: #111111;
+    --c-placeholder: rgba(0,0,0,0.40);
+  }
+}
+
+/* ── Light Mode Global Overrides ── */
+html.light [class*="text-white"]:not([class*="hover:bg-white"]):not([class*="group-hover"]) {
+  color: #111111 !important;
+}
+
+html.light [class*="text-white/"]:not([class*="hover:"]) {
+  color: rgba(17,17,17,0.65) !important;
+}
+
+html.light [class*="border-white/"] {
+  border-color: rgba(0,0,0,0.12) !important;
+}
+
+html.light [class*="bg-white/8"],
+html.light [class*="bg-white/7"],
+html.light [class*="bg-white/5"],
+html.light [class*="bg-white/10"] {
+  background-color: rgba(0,0,0,0.04) !important;
+}
+
+/* Buttons: primary (white bg / black text) → invert in light */
+html.light .btn-primary {
+  background-color: #111111 !important;
+  color: #ffffff !important;
+}
+
+html.light .btn-primary:hover {
+  background-color: #333333 !important;
+}
+
+/* Secondary buttons */
+html.light .btn-secondary {
+  background-color: rgba(0,0,0,0.06) !important;
+  color: #111111 !important;
+  border-color: rgba(0,0,0,0.12) !important;
+}
+
+html.light .btn-secondary:hover {
+  background-color: #111111 !important;
+  color: #ffffff !important;
+}
+
+/* Nav active pill */
+html.light .nav-active {
+  background-color: #111111 !important;
+  color: #ffffff !important;
+  border-color: #111111 !important;
+}
+
+/* Progress bar */
+html.light .progress-bar { background-color: rgba(0,0,0,0.08) !important; }
+html.light .progress-fill { background-color: #111111 !important; }
+html.light .metric-bar-track { background-color: rgba(0,0,0,0.08) !important; }
+html.light .metric-bar-fill { background-color: #111111 !important; }
+
+/* Inputs */
+html.light input,
+html.light select,
+html.light textarea {
+  background: var(--c-input) !important;
+  color: var(--c-input-text) !important;
+  border-color: var(--c-input-border) !important;
+}
+html.light input::placeholder,
+html.light textarea::placeholder {
+  color: var(--c-placeholder) !important;
+}
+
+/* Chart bars */
+html.light .chart-bar {
+  background: linear-gradient(180deg, #111, #666) !important;
+}
+
+/* Status badge */
+html.light .badge-ready {
+  background-color: #111111 !important;
+  color: #ffffff !important;
+}
